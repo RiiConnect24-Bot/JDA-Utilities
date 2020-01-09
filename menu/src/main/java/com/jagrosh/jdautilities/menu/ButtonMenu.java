@@ -127,7 +127,7 @@ public class ButtonMenu extends Menu
 
                             // If the value we got is not registered as a button to
                             // the ButtonMenu being displayed we return false.
-                            if(!choices.contains(re))
+                            if(!isChoice(re))
                                 return false;
 
                             // Last check is that the person who added the reaction
@@ -145,6 +145,13 @@ public class ButtonMenu extends Menu
                 }
             }
         });
+    }
+    
+    // RiiConnect24 Bot workaround
+    private boolean isChoice(String re)
+    {
+        re = re.substring(2, re.length());
+        return choices.contains(re);
     }
 
     // Generates a ButtonMenu message
