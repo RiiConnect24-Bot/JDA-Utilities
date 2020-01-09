@@ -20,7 +20,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Consumer;
+import java.util.function.BiConsumer;
 
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
 import net.dv8tion.jda.api.EmbedBuilder;
@@ -48,11 +48,11 @@ public class ButtonMenu extends Menu
     private final String text;
     private final String description;
     private final List<String> choices;
-    private final Consumer<ReactionEmote> action;
+    private final BiConsumer<Message, ReactionEmote> action;
     private final Consumer<Message> finalAction;
     
     ButtonMenu(EventWaiter waiter, Set<User> users, Set<Role> roles, long timeout, TimeUnit unit,
-               Color color, String text, String description, List<String> choices, Consumer<ReactionEmote> action, Consumer<Message> finalAction)
+               Color color, String text, String description, List<String> choices, BiConsumer<Message, ReactionEmote> action, Consumer<Message> finalAction)
     {
         super(waiter, users, roles, timeout, unit);
         this.color = color;
@@ -138,7 +138,7 @@ public class ButtonMenu extends Menu
                             // is fired and processed above.
 
                             // Preform the specified action with the ReactionEmote
-                            action.accept(event.getReaction().getReactionEmote());
+                            action.accept(m, event.getReaction().getReactionEmote());
                             finalAction.accept(m);
                         }, timeout, unit, () -> finalAction.accept(m));
                     });
@@ -183,7 +183,7 @@ public class ButtonMenu extends Menu
         private String text;
         private String description;
         private final List<String> choices = new LinkedList<>();
-        private Consumer<ReactionEmote> action;
+        private BiConsumer<Message, ReactionEmote> action;
         private Consumer<Message> finalAction = (m) -> {};
 
         /**
@@ -266,7 +266,7 @@ public class ButtonMenu extends Menu
          *
          * @return This builder
          */
-        public Builder setAction(Consumer<ReactionEmote> action)
+        public Builder setAction(BiConsumer<Message, ReactionEmote> action)
         {
             this.action = action;
             return this;
