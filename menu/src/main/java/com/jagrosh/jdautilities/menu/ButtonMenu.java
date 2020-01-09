@@ -150,8 +150,14 @@ public class ButtonMenu extends Menu
     // RiiConnect24 Bot workaround
     private boolean isChoice(String re)
     {
-        re = re.substring(2, re.length());
-        return choices.contains(re);
+        for(String choice : choices)
+        {
+            choice = choice.substring(2, choice.length());
+            if(choice.equals(re))
+                return true;
+        }
+        
+        return false;
     }
 
     // Generates a ButtonMenu message
