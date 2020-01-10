@@ -70,6 +70,9 @@ public class Paginator extends Menu
     private final boolean waitOnSinglePage;
     private final int bulkSkipNumber;
     private final boolean wrapPageEnds;
+    private String author; // RC24 Bot
+    private String avatar; // RC24 Bot
+    private String title; // RC24 Bot
     private final String leftText;
     private final String rightText;
     private final boolean allowTextInput;
@@ -84,7 +87,8 @@ public class Paginator extends Menu
               BiFunction<Integer,Integer,Color> color, BiFunction<Integer,Integer,String> text,
               Consumer<Message> finalAction, int columns, int itemsPerPage, boolean showPageNumbers,
               boolean numberItems, List<String> items, boolean waitOnSinglePage, int bulkSkipNumber,
-              boolean wrapPageEnds, String leftText, String rightText, boolean allowTextInput)
+              boolean wrapPageEnds, String author, String avatar, String title, String leftText,
+              String rightText, boolean allowTextInput)
     {
         super(waiter, users, roles, timeout, unit);
         this.color = color;
@@ -99,6 +103,9 @@ public class Paginator extends Menu
         this.waitOnSinglePage = waitOnSinglePage;
         this.bulkSkipNumber = bulkSkipNumber;
         this.wrapPageEnds = wrapPageEnds;
+        this.author = author; // RC24 Bot
+        this.avatar = avatar; // RC24 Bot
+        this.title = title; // RC24 Bot
         this.leftText = leftText;
         this.rightText = rightText;
         this.allowTextInput = allowTextInput;
@@ -388,6 +395,12 @@ public class Paginator extends Menu
         mbuilder.setEmbed(ebuilder.build());
         if(text!=null)
             mbuilder.append(text.apply(pageNum, pages));
+        // RiiConnect24 Bot - Start
+        if(title!=null)
+            ebuilder.setTitle(title);
+
+        ebuilder.setAuthor(author, avatar);
+        // RiiConnect24 Bot - End
         return mbuilder.build();
     }
 
@@ -409,6 +422,9 @@ public class Paginator extends Menu
         private boolean waitOnSinglePage = false;
         private int bulkSkipNumber = 1;
         private boolean wrapPageEnds = false;
+        private String author = null; // RC24 Bot
+        private String avatar = null; // RC24 Bot
+        private String title = null; // RC24 Bot
         private String textToLeft = null;
         private String textToRight = null;
         private boolean allowTextInput = false;
@@ -436,7 +452,7 @@ public class Paginator extends Menu
 
             return new Paginator(waiter, users, roles, timeout, unit, color, text, finalAction,
                 columns, itemsPerPage, showPageNumbers, numberItems, strings, waitOnSinglePage,
-                bulkSkipNumber, wrapPageEnds, textToLeft, textToRight, allowTextInput);
+                bulkSkipNumber, wrapPageEnds, author, avatar, title, textToLeft, textToRight, allowTextInput);
         }
 
         /**
@@ -487,6 +503,21 @@ public class Paginator extends Menu
             this.text = (i0, i1) -> text;
             return this;
         }
+
+        // RiiConnect24 Bot - Start
+        public Builder setAuthor(String author, String avatar)
+        {
+            this.author = author;
+            this.avatar = avatar;
+            return this;
+        }
+
+        public Builder setTitle(String title)
+        {
+            this.title = title;
+            return this;
+        }
+        // RiiConnect24 Bot - End
 
         /**
          * Sets the text of the {@link net.dv8tion.jda.api.entities.Message Message} to be displayed
