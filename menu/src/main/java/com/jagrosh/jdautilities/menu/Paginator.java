@@ -392,7 +392,6 @@ public class Paginator extends Menu
         ebuilder.setColor(color.apply(pageNum, pages));
         if(showPageNumbers)
             ebuilder.setFooter("Page "+pageNum+"/"+pages, null);
-        mbuilder.setEmbed(ebuilder.build());
         if(text!=null)
             mbuilder.append(text.apply(pageNum, pages));
         // RiiConnect24 Bot - Start
@@ -400,6 +399,7 @@ public class Paginator extends Menu
             ebuilder.setTitle(title);
 
         ebuilder.setAuthor(author, avatar);
+        mbuilder.setEmbed(ebuilder.build());
         // RiiConnect24 Bot - End
         return mbuilder.build();
     }
