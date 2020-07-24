@@ -19,10 +19,10 @@ import org.apache.tools.ant.filters.ReplaceTokens
 plugins {
     id 'com.github.ben-manes.versions' version '0.17.0'
     id 'com.github.johnrengelman.shadow' version '2.0.2'
-    id 'com.jfrog.bintray' version '1.8.0'
+    id 'com.jfrog.bintray' version '1.8.4'
 }
 
-def versionInfo = [major: '3', minor: '0', revision: '2']
+def versionInfo = [major: '3', minor: '0', revision: '4']
 
 task build {
     group = 'build'
@@ -37,9 +37,9 @@ allprojects {
     version = versionInfo.values().join('.')
 
     ext {
-        jdaVersion = '4.0.0_46'
+        jdaVersion = '4.1.1_164'
         slf4jVersion = '1.7.25'
-        okhttpVersion = '3.9.1'
+        okhttpVersion = '3.13.0'
         findbugsVersion = '3.0.2'
         jsonVersion = '20160810'
         junitVersion = '4.12' // TODO Move to junit 5?
