@@ -47,7 +47,6 @@ import javax.annotation.Nullable;
  *
  * @author John Grosh
  *
- * @implNote
  *         While the standard JDA-Utilities implementations of this and Menu are
  *         all handled as {@link net.dv8tion.jda.api.entities.MessageEmbed embeds},
  *         there is no bias or advantage of implementing a custom Menu as a message
@@ -176,7 +175,6 @@ public abstract class Menu
      *
      * @author John Grosh
      *
-     * @implNote
      *         Before 2.0 this were a separate class known as {@code MenuBuilder}.<br>
      *         Note that while the standard JDA-Utilities implementations of this and Menu are
      *         all handled as {@link net.dv8tion.jda.api.entities.MessageEmbed embeds}, there
