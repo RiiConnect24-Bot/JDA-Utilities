@@ -1,5 +1,3 @@
-gradlew binary
-
 .gitattributes text eol=crlf
 
 *.java text eol=crlf

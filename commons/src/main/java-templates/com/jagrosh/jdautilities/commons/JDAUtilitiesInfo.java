@@ -25,12 +25,12 @@ package com.jagrosh.jdautilities.commons;
  */
 public final class JDAUtilitiesInfo
 {
-    public static final String VERSION_MAJOR = "@VERSION_MAJOR@";
-    public static final String VERSION_MINOR = "@VERSION_MINOR@";
-    public static final String VERSION_REVISION  = "@VERSION_REVISION@";
+    public static final String VERSION_MAJOR = "@version.major@";
+    public static final String VERSION_MINOR = "@version.minor@";
+    public static final String VERSION_REVISION  = "@version.revision@";
     public static final String VERSION = VERSION_MAJOR.startsWith("@")? "DEV" : VERSION_MAJOR + "." + VERSION_MINOR + "." + VERSION_REVISION;
-    public static final String GITHUB = "https://github.com/JDA-Applications/JDA-Utilities";
-    public static final String AUTHOR = "JDA-Applications";
+    public static final String GITHUB = "https://github.com/RiiConnect24-Bot/JDA-Utilities";
+    public static final String AUTHOR = "RiiConnect24-Bot";
 
     // Removed in favor of a token replacement.
     /*
