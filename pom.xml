@@ -6,7 +6,7 @@
 
     <groupId>xyz.rc24</groupId>
     <artifactId>jda-utilities</artifactId>
-    <version>3.4.0</version>
+    <version>3.0.4</version>
 
     <packaging>pom</packaging>
 
@@ -29,8 +29,8 @@
         <java.version>11</java.version>
         <jda.version>4.2.0_180</jda.version>
         <version.major>3</version.major>
-        <version.minor>4</version.minor>
-        <version.revision>0</version.revision>
+        <version.minor>0</version.minor>
+        <version.revision>4</version.revision>
     </properties>
 
     <repositories>
