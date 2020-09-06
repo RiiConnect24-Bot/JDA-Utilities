@@ -7,7 +7,7 @@
     <parent>
         <groupId>xyz.rc24</groupId>
         <artifactId>jda-utilities</artifactId>
-        <version>3.4.0</version>
+        <version>3.0.4</version>
     </parent>
 
     <artifactId>jda-utilities-commons</artifactId>

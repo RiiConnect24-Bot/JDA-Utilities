@@ -153,7 +153,6 @@ public class ButtonMenu extends Menu
     {
         for(String choice : choices)
         {
-            choice = choice.substring(2, choice.length());
             if(choice.equals(re))
                 return true;
         }
