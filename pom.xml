@@ -6,7 +6,7 @@
 
     <groupId>xyz.rc24</groupId>
     <artifactId>jda-utilities</artifactId>
-    <version>3.0.4</version>
+    <version>3.0.5</version>
 
     <packaging>pom</packaging>
 
